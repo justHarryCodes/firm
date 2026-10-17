@@ -1,0 +1,47 @@
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3) var(--space-3);
+  background: var(--ivory);
+  border: 1px solid var(--navy-50);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  scroll-margin-top: 100px;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold-300);
+}
+.service-card-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(197, 165, 114, 0.12);
+  color: var(--gold-600);
+  margin-bottom: var(--space-2);
+}
+.service-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.service-card-desc {
+  font-size: 0.93rem;
+  color: var(--navy-500);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: var(--space-2);
+}
+.service-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--navy-800);
+  transition: gap var(--transition), color var(--transition);
+}
+.service-card-cta:hover { color: var(--gold-600); gap: 0.65rem; }

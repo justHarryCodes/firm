@@ -1,0 +1,172 @@
+.contact-form {
+  background: var(--ivory);
+  border: 1px solid var(--navy-50);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-warning,
+.form-demo-notice {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  margin-bottom: var(--space-3);
+}
+.form-warning {
+  background: var(--warning-100);
+  color: var(--warning-700);
+  border: 1px solid rgba(138, 106, 31, 0.25);
+}
+.form-warning svg { flex-shrink: 0; margin-top: 2px; }
+.form-demo-notice {
+  background: var(--navy-50);
+  color: var(--navy-700);
+  border: 1px solid var(--navy-100);
+}
+.form-demo-notice svg { flex-shrink: 0; margin-top: 2px; color: var(--navy-500); }
+.form-demo-notice code {
+  background: rgba(15,28,46,0.08);
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2) var(--space-3);
+}
+.form-field { display: flex; flex-direction: column; }
+.form-field-full { grid-column: 1 / -1; }
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--navy-800);
+  margin-bottom: 0.4rem;
+}
+.req { color: var(--gold-600); }
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--navy-900);
+  background: var(--cream);
+  border: 1px solid var(--navy-100);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.18);
+}
+.form-field textarea { resize: vertical; min-height: 120px; }
+.form-field select { appearance: none; cursor: pointer; }
+
+.form-error {
+  color: var(--error-700);
+  font-size: 0.82rem;
+  margin-top: 0.35rem;
+}
+
+.radio-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.radio-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--navy-100);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: var(--navy-700);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.radio-chip input { position: absolute; opacity: 0; width: 0; height: 0; }
+.radio-chip:hover { border-color: var(--gold-400); }
+.radio-chip.is-selected {
+  background: var(--navy-800);
+  border-color: var(--navy-800);
+  color: var(--ivory);
+}
+
+.consent-check {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.88rem;
+  color: var(--navy-700);
+  cursor: pointer;
+}
+.consent-check input { margin-top: 0.2rem; width: 16px; height: 16px; accent-color: var(--gold-600); flex-shrink: 0; }
+.consent-check a { color: var(--gold-600); text-decoration: underline; }
+
+.form-submit-error {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  background: var(--error-100);
+  color: var(--error-700);
+  border: 1px solid rgba(138, 43, 43, 0.25);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-top: var(--space-2);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  flex-wrap: wrap;
+}
+.form-submit { min-width: 180px; }
+.form-note { font-size: 0.8rem; color: var(--navy-400); margin: 0; }
+
+.spin { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Success */
+.form-success {
+  background: var(--ivory);
+  border: 1px solid var(--success-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.form-success-icon {
+  display: grid;
+  place-items: center;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--success-100);
+  color: var(--success-700);
+  margin: 0 auto var(--space-2);
+}
+.form-success h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.form-success p { color: var(--navy-500); max-width: 52ch; margin: 0 auto var(--space-3); }
+.form-success-actions {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .contact-form { padding: var(--space-3); }
+}
