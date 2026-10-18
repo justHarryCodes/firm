@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone, ArrowUpRight } from 'lucide-react'
-import { siteConfig, services } from '../lib/site'
+import { siteConfig, practiceAreas } from '../lib/site'
 import './Footer.css'
 
 export default function Footer() {
@@ -10,10 +10,11 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <img src="/r2-final-DSC_1004_pp-min.png" alt="" className="footer-mark" aria-hidden="true" />
-          <p className="footer-name">{siteConfig.brand}</p>
+          <p className="footer-name">{siteConfig.firm}</p>
           <p className="footer-desc">
-            Private legal consultancy offering thoughtful, confidential guidance
-            tailored to your circumstances. Clear communication and considered, practical advice.
+            {siteConfig.attorney} — {siteConfig.role}. Based in {siteConfig.location}.
+            Representing individuals and families in personal injury and employment law matters
+            with thorough investigation, honest communication, and a commitment to justice.
           </p>
         </div>
 
@@ -26,9 +27,9 @@ export default function Footer() {
           <Link to="/privacy">Privacy &amp; Disclaimer</Link>
         </nav>
 
-        <nav className="footer-col" aria-label="Services">
-          <h4 className="footer-heading">Services</h4>
-          {services.map((s) => (
+        <nav className="footer-col" aria-label="Practice Areas">
+          <h4 className="footer-heading">Practice Areas</h4>
+          {practiceAreas.map((s) => (
             <Link key={s.id} to={`/services#${s.id}`}>{s.title}</Link>
           ))}
         </nav>
@@ -36,7 +37,7 @@ export default function Footer() {
         <div className="footer-col footer-contact">
           <h4 className="footer-heading">Get in touch</h4>
           <Link to="/contact" className="btn btn-outline footer-cta">
-            Get in Touch <ArrowUpRight size={16} />
+            Request a Consultation <ArrowUpRight size={16} />
           </Link>
           {siteConfig.email && (
             <a href={`mailto:${siteConfig.email}`} className="footer-contact-link">
@@ -56,7 +57,7 @@ export default function Footer() {
 
       <div className="footer-base">
         <div className="container footer-base-inner">
-          <p>© {year} {siteConfig.brand}. All rights reserved.</p>
+          <p>© {year} {siteConfig.firm}. All rights reserved.</p>
           <p className="footer-disclaimer">
             The content of this website is provided for general information only and is not
             legal advice. Submitting an inquiry does not establish a lawyer-client relationship.

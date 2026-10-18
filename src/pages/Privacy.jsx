@@ -1,5 +1,5 @@
 import { ShieldAlert } from 'lucide-react'
-import { useDocumentTitle } from '../lib/site'
+import { siteConfig, useDocumentTitle } from '../lib/site'
 import './pages.css'
 
 export default function Privacy() {
@@ -25,13 +25,14 @@ export default function Privacy() {
                 <ShieldAlert size={20} /> Important Disclaimer
               </h2>
               <p>
-                This website provides general information about consultancy services.
-                Its content is not, by itself, legal advice for any specific matter.
+                This website provides general information about {siteConfig.firm} and its
+                practice areas. Its content is not, by itself, legal advice for any specific matter.
               </p>
               <p>
                 Submitting an inquiry through this website does not automatically establish
-                a lawyer-client relationship. The consultant’s services and availability
-                depend on applicable professional rules, qualifications, and jurisdiction.
+                an attorney-client relationship. The firm’s services and availability depend
+                on applicable professional rules, qualifications, and jurisdiction. An
+                attorney-client relationship is formed only upon a signed engagement agreement.
               </p>
               <p style={{ marginBottom: 0 }}>
                 Urgent legal matters should be directed to an appropriately qualified
@@ -41,17 +42,17 @@ export default function Privacy() {
 
             <h2>Privacy Policy</h2>
             <p>
-              This policy describes how Vache Thomassian handles information submitted
-              through the inquiry form and live chat. It is provided for general
-              information and may be updated from time to time.
+              This policy describes how {siteConfig.firm} handles information submitted
+              through the inquiry form and live chat. It is provided for general information
+              and may be updated from time to time.
             </p>
 
             <h3>Information you submit</h3>
             <p>
               When you use the inquiry form, you may provide your name, email address,
-              an optional phone number, the type of inquiry, your preferred contact
-              method, and a brief message. You also acknowledge the privacy notice by
-              checking the consent box.
+              an optional phone number, the type of matter, your preferred contact method,
+              and a brief message. You also acknowledge the privacy notice by checking the
+              consent box.
             </p>
             <p>
               <strong>Please do not submit</strong> confidential information, sensitive
@@ -82,10 +83,10 @@ export default function Privacy() {
 
             <h3>Data handling and retention</h3>
             <p>
-              <em>[Retention details to be supplied by me.]</em> Specific
-              retention periods and data-storage arrangements will be described here once
-              confirmed. Until then, submitted inquiries are retained only as long as
-              reasonably necessary to respond and arrange any follow-up.
+              <em>[Retention details to be supplied by the firm.]</em> Specific retention
+              periods and data-storage arrangements will be described here once confirmed.
+              Until then, submitted inquiries are retained only as long as reasonably
+              necessary to respond and arrange any follow-up.
             </p>
 
             <h3>Your questions</h3>
@@ -98,15 +99,15 @@ export default function Privacy() {
             <h3>No claimed certifications</h3>
             <p>
               No specific legal compliance status, security certification, or regulatory
-              authorization is claimed on this website unless separately verified and
-              stated by me.
+              authorization is claimed on this website beyond the attorney’s bar admissions
+              stated on the About page.
             </p>
 
             <hr className="rule" />
             <p style={{ fontSize: '0.85rem', color: 'var(--navy-400)' }}>
-              This page contains editable placeholder content. I should review
-              and replace any bracketed or placeholder text with verified information
-              before publishing.
+              This page contains editable placeholder content. The firm should review and
+              replace any bracketed or placeholder text with verified information before
+              publishing.
             </p>
           </article>
         </div>

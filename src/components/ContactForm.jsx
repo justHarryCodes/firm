@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser'
 import {
   Loader2, CheckCircle2, AlertTriangle, ShieldAlert, Send
 } from 'lucide-react'
-import { services } from '../lib/site'
+import { practiceAreas } from '../lib/site'
 import './ContactForm.css'
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
@@ -49,7 +49,7 @@ export default function ContactForm() {
   useEffect(() => {
     const svc = params.get('service')
     if (svc) {
-      const match = services.find((s) => s.id === svc)
+      const match = practiceAreas.find((s) => s.id === svc)
       if (match) {
         setValues((v) => ({ ...v, inquiry_type: match.title }))
       }
@@ -68,7 +68,7 @@ export default function ContactForm() {
   }
 
   const inquiryOptions = useMemo(
-    () => ['General inquiry', ...services.map((s) => s.title)],
+    () => ['General inquiry', ...practiceAreas.map((s) => s.title)],
     []
   )
 
@@ -177,7 +177,7 @@ export default function ContactForm() {
           />
         </Field>
 
-        <Field label="Type of inquiry" name="inquiry_type" required error={fieldError('inquiry_type')}>
+        <Field label="Type of matter" name="inquiry_type" required error={fieldError('inquiry_type')}>
           <select
             id="inquiry_type" name="inquiry_type"
             value={values.inquiry_type} onChange={handleChange} onBlur={handleBlur}

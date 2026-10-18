@@ -1,4 +1,4 @@
-import { Mail, Phone, MessageCircle, Clock } from 'lucide-react'
+import { Mail, Phone, MessageCircle, Clock, MapPin } from 'lucide-react'
 import { siteConfig, useDocumentTitle } from '../lib/site'
 import ContactForm from '../components/ContactForm'
 import './pages.css'
@@ -12,10 +12,11 @@ export default function Contact() {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">Contact</p>
-          <h1>Tell me how I can help.</h1>
+          <h1>Tell us how we can help.</h1>
           <p>
-            Share a brief, non-confidential description of your inquiry and I will respond
-            using your preferred contact method. Every inquiry is reviewed personally.
+            Share a brief, non-confidential description of your situation and we will respond
+            using your preferred contact method. Every inquiry is reviewed personally by
+            {' '}{siteConfig.attorneyFirst}.
           </p>
         </div>
       </section>
@@ -23,12 +24,19 @@ export default function Contact() {
       <section className="section">
         <div className="container contact-grid">
           <aside className="contact-intro reveal">
-            <h2 className="eyebrow">A few details</h2>
+            <h2 className="eyebrow">{siteConfig.firm}</h2>
             <p>
-              Use the form to outline your inquiry. There is no obligation in reaching out,
+              Use the form to outline your matter. There is no obligation in reaching out,
               and your message is treated with discretion.
             </p>
             <div className="contact-info">
+              <div className="contact-info-item">
+                <MapPin size={18} className="icon" />
+                <div>
+                  <div className="label">Office</div>
+                  <div className="value">{siteConfig.location}</div>
+                </div>
+              </div>
               {siteConfig.email && (
                 <div className="contact-info-item">
                   <Mail size={18} className="icon" />
@@ -54,11 +62,6 @@ export default function Contact() {
                   <div className="value">Within a reasonable time, during business days</div>
                 </div>
               </div>
-              {!siteConfig.email && !siteConfig.phone && (
-                <p style={{ fontSize: '0.85rem', color: 'var(--navy-400)', fontStyle: 'italic' }}>
-                  Contact details will appear here once configured.
-                </p>
-              )}
             </div>
 
             <div className={`chat-note ${tawkConfigured ? '' : 'disabled'}`}>

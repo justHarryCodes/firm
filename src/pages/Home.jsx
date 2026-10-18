@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom'
 import { Scale, FileText, UserCheck, ShieldCheck, ArrowRight } from 'lucide-react'
-import { services } from '../lib/site'
+import { practiceAreas, siteConfig, useDocumentTitle } from '../lib/site'
 import ServiceCard from '../components/ServiceCard'
-import { useDocumentTitle } from '../lib/site'
 import './pages.css'
 
 const heroImg = '/r2-final-DSC_1004_pp-min.png'
+
 const values = [
-  { icon: UserCheck, title: 'Individual attention', body: 'Every inquiry is considered by me personally — no team, no handoff.' },
-  { icon: ShieldCheck, title: 'Discretion & confidentiality', body: 'Your circumstances are discussed privately and handled with care.' },
-  { icon: FileText, title: 'Clear communication', body: 'Legal considerations explained in plain language, so you understand your options.' },
-  { icon: Scale, title: 'A considered approach', body: 'Practical guidance grounded in careful review, not rushed conclusions.' },
+  { icon: UserCheck, title: 'Client-focused', body: 'Every matter is handled with personal attention and straightforward, honest advice.' },
+  { icon: ShieldCheck, title: 'Holding parties accountable', body: 'Thorough investigation and proactive preparation to identify liability and pursue recovery.' },
+  { icon: FileText, title: 'Clear communication', body: 'Clients deserve transparent updates and a clear understanding of their legal options.' },
+  { icon: Scale, title: 'A commitment to justice', body: 'Principled, results-oriented representation for individuals facing difficult circumstances.' },
 ]
 
 export default function Home() {
@@ -20,24 +20,24 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy reveal">
-            <span className="hero-eyebrow">Vache Thomassian · Private Legal Consultant</span>
-            <h1>Clear Legal Guidance.<br /><em>Personal Attention.</em></h1>
+            <span className="hero-eyebrow">{siteConfig.firm} · {siteConfig.location}</span>
+            <h1>Protecting Your Rights.<br /><em>Personal Attention.</em></h1>
             <p className="hero-lead">
-              Thoughtful, confidential legal consultancy tailored to your circumstances.
-              Receive personalized guidance to help you understand your options and
-              navigate complex legal questions with greater clarity.
+              {siteConfig.attorneyFirst} represents individuals and families in personal injury
+              and employment law matters — bringing a strategic, detail-oriented approach to
+              complex legal disputes and a commitment to justice.
             </p>
             <div className="hero-ctas">
-              <Link to="/contact" className="btn btn-primary reveal-d1">Get in Touch</Link>
-              <Link to="/services" className="btn btn-outline reveal-d2">Explore Services <ArrowRight size={16} /></Link>
+              <Link to="/contact" className="btn btn-primary reveal-d1">Request a Consultation</Link>
+              <Link to="/services" className="btn btn-outline reveal-d2">Explore Practice Areas <ArrowRight size={16} /></Link>
             </div>
           </div>
           <div className="hero-visual reveal reveal-d2">
-            <img src={heroImg} alt="Vache Thomassian, private legal consultant" loading="eager" />
+            <img src={heroImg} alt={`${siteConfig.attorneyFirst}, founding partner of ${siteConfig.firm}`} loading="eager" />
             <span className="hero-frame" />
             <div className="hero-badge">
-              <strong>Vache Thomassian</strong>
-              Private legal consultant, by appointment.
+              <strong>{siteConfig.attorney}</strong>
+              {siteConfig.role}
             </div>
           </div>
         </div>
@@ -58,20 +58,48 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <p className="eyebrow">How I can help</p>
-            <h2>A considered approach to your legal questions</h2>
+            <p className="eyebrow">Practice Areas</p>
+            <h2>Representing individuals in personal injury &amp; employment matters</h2>
             <p>
-              Personalized consultation across a focused set of areas — from preliminary
-              guidance to contract review and private matters.
+              A focused practice dedicated to the rights of individuals and families — from
+              motor vehicle collisions and wrongful death claims to workplace discrimination
+              and wage disputes.
             </p>
           </div>
           <div className="services-overview-grid">
-            {services.map((s, i) => (
+            {practiceAreas.map((s, i) => (
               <ServiceCard key={s.id} service={s} index={i} />
             ))}
           </div>
           <div className="text-center" style={{ marginTop: 'var(--space-4)' }}>
-            <Link to="/services" className="link-arrow">View all services <ArrowRight size={15} /></Link>
+            <Link to="/services" className="link-arrow">View all practice areas <ArrowRight size={15} /></Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-sm" style={{ background: 'var(--ivory)', borderTop: '1px solid var(--navy-50)', borderBottom: '1px solid var(--navy-50)' }}>
+        <div className="container">
+          <div className="about-grid" style={{ alignItems: 'center' }}>
+            <div className="about-body reveal" style={{ maxWidth: '640px' }}>
+              <p className="eyebrow">Meet {siteConfig.attorneyFirst}</p>
+              <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
+                A principled, detail-oriented approach to complex legal disputes.
+              </h2>
+              <p style={{ color: 'var(--navy-600)', lineHeight: 1.8 }}>
+                {siteConfig.attorney} is the founding partner of {siteConfig.firm}, based in
+                {' '}{siteConfig.location}. His legal philosophy is grounded in thorough
+                investigation, honest communication, and a commitment to justice — taking a
+                proactive approach to case preparation to identify critical evidence and
+                pursue appropriate avenues for recovery.
+              </p>
+              <div style={{ marginTop: 'var(--space-3)' }}>
+                <Link to="/about" className="link-arrow">Read the full profile <ArrowRight size={15} /></Link>
+              </div>
+            </div>
+            <div className="about-image reveal reveal-d1" style={{ maxWidth: '420px' }}>
+              <img src={heroImg} alt={siteConfig.attorneyFirst} loading="lazy" />
+              <span className="hero-frame" />
+            </div>
           </div>
         </div>
       </section>
@@ -79,12 +107,12 @@ export default function Home() {
       <section className="section-sm">
         <div className="container">
           <div className="cta-band reveal">
-            <h2>Begin with a private conversation.</h2>
+            <h2>Begin with a confidential conversation.</h2>
             <p>
-              Share a brief, non-confidential description of your inquiry and take the
-              first step toward clearer understanding of your legal options.
+              Share a brief, non-confidential description of your situation and take the
+              first step toward understanding your legal options.
             </p>
-            <Link to="/contact" className="btn btn-gold">Get in Touch</Link>
+            <Link to="/contact" className="btn btn-gold">Request a Consultation</Link>
           </div>
         </div>
       </section>

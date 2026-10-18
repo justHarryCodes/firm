@@ -1,54 +1,75 @@
 import { useEffect } from 'react'
 
-const BASE_TITLE = 'Vache Thomassian — Private Legal Consultant'
+const BASE_TITLE = 'KJT Law Group, LLP — Vaché Thomassian, Esq.'
 
 export function useDocumentTitle(title) {
   useEffect(() => {
-    document.title = title ? `${title} — Vache Thomassian` : BASE_TITLE
+    document.title = title ? `${title} — KJT Law Group, LLP` : BASE_TITLE
   }, [title])
 }
 
 export const siteConfig = {
-  brand: 'Vache Thomassian',
-  shortBrand: 'Vache Thomassian',
-  monogram: 'VT',
-  tagline: 'Private Legal Consultant',
-  role: 'Private Legal Consultant',
+  firm: 'KJT Law Group, LLP',
+  attorney: 'Vaché Thomassian, Esq.',
+  attorneyFirst: 'Vaché Thomassian',
+  role: 'Founding Partner · Attorney at Law',
+  location: 'Glendale, California',
+  monogram: 'KJT',
+  tagline: 'Personal Injury & Employment Law',
   email: import.meta.env.VITE_CONTACT_EMAIL || '',
   phone: import.meta.env.VITE_CONTACT_PHONE || '',
 }
 
-export const services = [
+export const practiceAreas = [
   {
-    id: 'legal-consultation',
-    title: 'Legal Consultation and Guidance',
-    short: 'Preliminary discussions to understand a legal concern, clarify questions, and consider potential next steps.',
+    id: 'auto-truck-accidents',
+    title: 'Automobile & Truck Accidents',
+    short: 'Representation for individuals injured in motor vehicle and commercial truck collisions.',
     description:
-      'A considered first conversation about your legal concern. We clarify the question, review the relevant considerations, and outline practical options so you can decide on appropriate next steps with greater confidence.',
+      'Representing individuals injured in car, motorcycle, and commercial truck collisions — investigating the facts, establishing liability, and pursuing full and fair compensation for medical expenses, lost income, and pain and suffering.',
+    icon: 'Car',
+  },
+  {
+    id: 'premises-liability',
+    title: 'Premises Liability',
+    short: 'Claims arising from unsafe conditions on residential, commercial, or public property.',
+    description:
+      'Holding property owners accountable for unsafe conditions that cause injury — including slip-and-fall incidents, inadequate maintenance, and hazardous premises. Thorough investigation identifies responsible parties and supports a clear path to recovery.',
+    icon: 'Building2',
+  },
+  {
+    id: 'wrongful-death',
+    title: 'Wrongful Death Claims',
+    short: 'Compassionate representation for families who have lost a loved one due to another’s negligence.',
+    description:
+      'Compassionate, principled representation for families who have lost a loved one due to another party’s negligence. These matters are handled with discretion and care, pursuing accountability and financial security for those left behind.',
+    icon: 'HeartHandshake',
+  },
+  {
+    id: 'workplace-discrimination',
+    title: 'Workplace Discrimination',
+    short: 'Protecting employees from unlawful treatment based on protected characteristics.',
+    description:
+      'Protecting employees from unlawful treatment based on race, gender, age, disability, national origin, or other protected characteristics. Each matter is evaluated carefully to identify violations and pursue appropriate remedies.',
     icon: 'Scale',
   },
   {
-    id: 'contract-review',
-    title: 'Contract Review and Documentation',
-    short: 'Consultation concerning contracts, agreements, and related legal documentation.',
+    id: 'wrongful-termination',
+    title: 'Wrongful Termination',
+    short: 'Advocacy for employees dismissed in violation of the law or public policy.',
     description:
-      'Guidance on contracts, agreements, and related documentation — identifying points worth attention and explaining the considerations that matter, subject to applicable qualifications and authorization.',
+      'Advocacy for employees who have been dismissed in violation of the law, public policy, or an employment agreement. A proactive review of the circumstances helps identify whether termination rights were violated and what recovery may be available.',
     icon: 'FileText',
   },
   {
-    id: 'business-commercial',
-    title: 'Business and Commercial Legal Guidance',
-    short: 'Preliminary guidance on commercial arrangements, business documentation, and legal considerations affecting business decisions.',
+    id: 'wage-hour-disputes',
+    title: 'Wage & Hour Disputes',
+    short: 'Recovering unpaid wages, overtime, and addressing wage and hour violations.',
     description:
-      'Preliminary guidance on commercial arrangements, business documentation, and the legal considerations that affect day-to-day business decisions — explained clearly and without jargon.',
+      'Pursuing unpaid wages, missed overtime, meal-and-rest-break violations, and other wage-and-hour matters. Careful review of pay records and employment terms helps ensure employees receive the compensation they are owed under the law.',
     icon: 'Briefcase',
   },
-  {
-    id: 'personal-matters',
-    title: 'Personal Legal Matters',
-    short: 'Private consultation concerning personal legal questions and possible next steps.',
-    description:
-      'A private consultation for personal legal questions — an opportunity to talk through your circumstances, understand the considerations, and identify possible next steps within my applicable scope of practice.',
-    icon: 'UserCheck',
-  },
 ]
+
+// Kept for backward compatibility where components reference `services`
+export const services = practiceAreas

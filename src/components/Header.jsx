@@ -32,8 +32,8 @@ export default function Header() {
         <Link to="/" className="brand" aria-label={`${siteConfig.brand} — home`}>
           <img src="/r2-final-DSC_1004_pp-min.png" alt="" className="brand-mark" aria-hidden="true" />
           <span className="brand-text">
-            <span className="brand-name">Vache Thomassian</span>
-            <span className="brand-sub">Private Legal Consultant</span>
+            <span className="brand-name">KJT Law Group, LLP</span>
+            <span className="brand-sub">Vaché Thomassian, Esq. · Personal Injury &amp; Employment Law</span>
           </span>
         </Link>
 
@@ -49,7 +49,7 @@ export default function Header() {
             </NavLink>
           ))}
           <Link to="/contact" className="btn btn-gold header-cta">
-            Get in Touch
+            Request a Consultation
           </Link>
         </nav>
 
@@ -83,7 +83,7 @@ export default function Header() {
             </NavLink>
           ))}
           <Link to="/contact" className="btn btn-gold mobile-cta">
-            Get in Touch
+            Request a Consultation
           </Link>
         </nav>
       </div>

@@ -1,8 +1,27 @@
-import { Info } from 'lucide-react'
-import { useDocumentTitle } from '../lib/site'
+import { GraduationCap, Award, MapPin, BadgeCheck } from 'lucide-react'
+import { siteConfig, useDocumentTitle } from '../lib/site'
 import './pages.css'
 
 const aboutImg = '/r2-final-DSC_1004_pp-min.png'
+
+const credentials = [
+  { icon: GraduationCap, label: 'Education', items: [
+    'Bachelor of Arts — University of California, Berkeley',
+    'Juris Doctor — Loyola Law School, Los Angeles',
+    'Master’s Degree — Columbia University, School of International & Public Affairs',
+  ]},
+  { icon: BadgeCheck, label: 'Bar Admissions', items: [
+    'State Bar of California — admitted 2013',
+    'U.S. District Court, Central District of California',
+  ]},
+  { icon: MapPin, label: 'Location', items: [
+    `${siteConfig.firm} — ${siteConfig.location}`,
+  ]},
+  { icon: Award, label: 'Practice Focus', items: [
+    'Personal Injury',
+    'Employment Law',
+  ]},
+]
 
 export default function About() {
   useDocumentTitle('About')
@@ -11,10 +30,10 @@ export default function About() {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">About</p>
-          <h1>Vache Thomassian</h1>
+          <h1>{siteConfig.attorney}</h1>
           <p>
-            A private legal consultant — offering personal, discreet guidance focused on
-            understanding your circumstances and helping you identify appropriate next steps.
+            {siteConfig.role} of {siteConfig.firm}, based in {siteConfig.location}.
+            Representing individuals and families in personal injury and employment law matters.
           </p>
         </div>
       </section>
@@ -22,40 +41,55 @@ export default function About() {
       <section className="section">
         <div className="container about-grid">
           <div className="about-image reveal">
-            <img src={aboutImg} alt="Vache Thomassian, private legal consultant" loading="lazy" />
+            <img src={aboutImg} alt={`${siteConfig.attorneyFirst}, founding partner of ${siteConfig.firm}`} loading="lazy" />
             <span className="hero-frame" />
           </div>
           <div className="about-body reveal reveal-d1">
             <p className="lead">
-              Every legal matter deserves careful attention. My approach is centered on
-              understanding your circumstances, explaining relevant considerations clearly,
-              and helping you identify appropriate next steps.
+              {siteConfig.attorney} is a distinguished attorney and the founding partner of
+              {' '}{siteConfig.firm}, based in {siteConfig.location}. He represents individuals
+              and families in personal injury and employment law matters, bringing a strategic,
+              detail-oriented approach to complex legal disputes.
             </p>
             <p>
-              I work privately with individuals and businesses who value a considered,
-              personal approach. This is not a firm — it is a solo practice. Rather than
-              offering generic answers, each consultation begins by listening, so the
-              guidance you receive reflects your specific situation, not a template.
+              His practice encompasses automobile and truck accidents, premises liability,
+              wrongful death claims, workplace discrimination, wrongful termination, and wage
+              and hour disputes. He is committed to protecting the rights of individuals,
+              holding negligent parties accountable, and helping clients navigate challenging
+              legal circumstances with confidence and clarity.
             </p>
             <p>
-              My aim is to bring clarity to complex legal questions: to explain the
-              considerations that matter, outline the options available, and help you
-              move forward with greater confidence. Where a matter falls outside my
-              scope of practice, I will say so plainly.
+              {siteConfig.attorneyFirst}’s legal philosophy is grounded in thorough
+              investigation, honest communication, and a commitment to justice. He takes a
+              proactive approach to case preparation — identifying critical evidence,
+              evaluating potential liability, and pursuing appropriate avenues for recovery.
+              He believes clients deserve straightforward advice, transparent communication,
+              and dedicated representation throughout the legal process.
+            </p>
+            <p>
+              Beyond his legal practice, {siteConfig.attorneyFirst} is guided by a longstanding
+              commitment to social justice and community advocacy. His work reflects a
+              dedication to fairness, accountability, and ensuring that individuals receive
+              meaningful legal representation when confronting difficult personal,
+              professional, or financial circumstances.
+            </p>
+            <p>
+              Through his professional leadership and client-focused approach, {siteConfig.attorneyFirst}
+              {' '}continues to advocate for individuals seeking knowledgeable, principled, and
+              results-oriented legal representation.
             </p>
 
-            <div className="placeholder-card">
-              <h4><Info size={14} /> To be supplied by me</h4>
-              <ul className="placeholder-list">
-                <li>Professional biography and background</li>
-                <li>Qualifications and credentials</li>
-                <li>Applicable jurisdiction(s) of practice</li>
-                <li>Areas of professional competence</li>
-                <li>Licensing or registration details, where relevant</li>
-              </ul>
-              <p style={{ fontSize: '0.82rem', color: 'var(--navy-400)', marginTop: '0.8rem', marginBottom: 0 }}>
-                These details will appear here once verified.
-              </p>
+            <div className="credentials-grid">
+              {credentials.map((c) => (
+                <div key={c.label} className="credential-card">
+                  <h4><c.icon size={15} /> {c.label}</h4>
+                  <ul>
+                    {c.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>
