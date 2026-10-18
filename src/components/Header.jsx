@@ -1,39 +1,52 @@
-import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
-import { siteConfig } from '../lib/site'
-import useScrolled from '../lib/useScrolled'
-import './Header.css'
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { siteConfig } from "../lib/site";
+import useScrolled from "../lib/useScrolled";
+import "./Header.css";
 
 const navItems = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/about', label: 'About' },
-  { to: '/services', label: 'Services' },
-  { to: '/contact', label: 'Contact' },
-]
+  { to: "/", label: "Home", end: true },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
+  { to: "/contact", label: "Contact" },
+];
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
-  const scrolled = useScrolled()
-  const location = useLocation()
+  const [open, setOpen] = useState(false);
+  const scrolled = useScrolled();
+  const location = useLocation();
 
   useEffect(() => {
-    setOpen(false)
-  }, [location.pathname])
+    setOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [open])
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
-    <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="container header-inner">
-        <Link to="/" className="brand" aria-label={`${siteConfig.brand} — home`}>
-          <img src="/r2-final-DSC_1004_pp-min.png" alt="" className="brand-mark" aria-hidden="true" />
+        <Link
+          to="/"
+          className="brand"
+          aria-label={`${siteConfig.brand} — home`}
+        >
+          <img
+            src="/r2-final-DSC_1004_pp-min.png"
+            alt=""
+            className="brand-mark"
+            aria-hidden="true"
+          />
           <span className="brand-text">
-            <span className="brand-name">KJT Law Group, LLP</span>
-            <span className="brand-sub">Vaché Thomassian, Esq. · Personal Injury &amp; Employment Law</span>
+            <span className="brand-name">Private Firm</span>
+            <span className="brand-sub">
+              Vaché Thomassian, Esq. · Personal Injury &amp; Employment Law
+            </span>
           </span>
         </Link>
 
@@ -43,7 +56,9 @@ export default function Header() {
               key={item.to}
               to={item.to}
               end={item.end}
-              className={({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`}
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "is-active" : ""}`
+              }
             >
               {item.label}
             </NavLink>
@@ -55,7 +70,7 @@ export default function Header() {
 
         <button
           className="nav-toggle"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
@@ -66,7 +81,7 @@ export default function Header() {
 
       <div
         id="mobile-menu"
-        className={`mobile-menu ${open ? 'is-open' : ''}`}
+        className={`mobile-menu ${open ? "is-open" : ""}`}
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
@@ -77,7 +92,9 @@ export default function Header() {
               key={item.to}
               to={item.to}
               end={item.end}
-              className={({ isActive }) => `mobile-link ${isActive ? 'is-active' : ''}`}
+              className={({ isActive }) =>
+                `mobile-link ${isActive ? "is-active" : ""}`
+              }
             >
               {item.label}
             </NavLink>
@@ -87,7 +104,13 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-      {open && <div className="mobile-backdrop" onClick={() => setOpen(false)} aria-hidden="true" />}
+      {open && (
+        <div
+          className="mobile-backdrop"
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+      )}
     </header>
-  )
+  );
 }
